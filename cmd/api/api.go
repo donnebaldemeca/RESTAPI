@@ -20,8 +20,16 @@ type config struct {
 func (app *application) mount() http.Handler {
 	mux := chi.NewRouter()
 
-	mux.Use(middleware.Recoverer)
+	// A good base middleware stack (Chi docs)
+	mux.Use(middleware.RequestID)
+	mux.Use(middleware.RealIP)
 	mux.Use(middleware.Logger)
+	mux.Use(middleware.Recoverer)
+
+	// Set a timeout value on the request context (ctx), that will signal
+	// through ctx.Done() that the request has timed out and further
+	// processing should be stopped. (Chi docs)
+	mux.Use(middleware.Timeout(60 * time.Second))
 
 	mux.Route("/v1", func(r chi.Router) {
 		r.Get("/health", app.healthCheckHandler)
