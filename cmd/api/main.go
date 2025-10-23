@@ -2,11 +2,16 @@ package main
 
 import (
 	"log"
+	"os"
+
+	"github.com/donnebaldemeca/RESTAPI/internal/env"
 )
 
 func main() {
+	env.LoadEnv()
+
 	cfg := config{
-		addr: ":8080",
+		addr: os.Getenv("ADDR"),
 	}
 
 	app := &application{
