@@ -37,6 +37,8 @@ func main() {
 		log.Panic(err)
 	}
 
+	defer db.Close()
+
 	storage := storage.NewStorage(db)
 
 	app := &application{
