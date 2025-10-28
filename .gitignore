@@ -1,5 +1,5 @@
 # Ignore project environment variables
-g.env
+.env
 
 # Ignore configuration for Air live-reloading tool
 .air.toml
