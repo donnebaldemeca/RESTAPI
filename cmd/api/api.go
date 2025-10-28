@@ -5,12 +5,14 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/donnebaldemeca/RESTAPI/internal/storage"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
 
 type application struct {
-	config config
+	config  config
+	storage storage.Storage
 }
 
 type config struct {
