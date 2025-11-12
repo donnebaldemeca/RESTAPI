@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	env.LoadEnv()
+	// env.LoadEnv()
 
 	cfg := config{
 		addr: env.GetString("ADDR", ":8080"),
@@ -26,6 +26,7 @@ func main() {
 	log.Printf("DB_MAX_OPEN_CONNS: %d", cfg.db.maxOpenConns)
 	log.Printf("DB_MAX_IDLE_CONNS: %d", cfg.db.maxIdleConns)
 	log.Printf("DB_MAX_IDLE_TIME: %v", cfg.db.maxIdleTime)
+	log.Printf("CHANGES")
 
 	db, err := db.New(
 		cfg.db.dsn,

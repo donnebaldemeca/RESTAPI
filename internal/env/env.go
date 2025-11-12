@@ -1,21 +1,19 @@
 package env
 
 import (
-	"log"
+	// "log"
 	"os"
 	"strconv"
 	"time"
-
-	"github.com/lpernett/godotenv"
 )
 
-func LoadEnv() error {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-	return err
-}
+// func LoadEnv() error {
+// 	err := godotenv.Load()
+// 	if err != nil {
+// 		log.Fatal("Error loading .env file")
+// 	}
+// 	return err
+// }
 
 func GetString(key string, fallback string) string {
 	val, ok := os.LookupEnv(key)
