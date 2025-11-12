@@ -25,7 +25,7 @@ func main() {
 	log.Printf("DB_DSN: %v", cfg.db.dsn)
 	log.Printf("DB_MAX_OPEN_CONNS: %d", cfg.db.maxOpenConns)
 	log.Printf("DB_MAX_IDLE_CONNS: %d", cfg.db.maxIdleConns)
-	log.Printf("DB_MAX_IDLE_TIM: %v", cfg.db.maxIdleTime)
+	log.Printf("DB_MAX_IDLE_TIME: %v", cfg.db.maxIdleTime)
 	log.Printf("CHANGES")
 
 	db, err := db.New(
